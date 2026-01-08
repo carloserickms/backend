@@ -16,7 +16,7 @@ def create_app():
 
     CORS(
         app,
-        resources={r"/api/*": {"origins": "http://localhost:8080"}},
+        resources={r"/api/*": {"origins": "https://remix-of-survey-bloom.vercel.app"}},
         supports_credentials=True,
         automatic_options=True
     )
