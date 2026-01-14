@@ -44,6 +44,13 @@ def criar_pergunta():
                     'status': 'error',
                     'message': f'An error has occurred!{str(error)}'
                 }), 500
+        
+@pergunta_route.route('/api/v1/listar_perguntas', methods=['GET'])
+def listar_perguntas():
+    perguntas = Pergunta.query.all()
+    perguntas_schema = PerguntaSchema(many=True)
+
+    return perguntas_schema.dump(perguntas)
 
 @pergunta_route.route('/api/v1/editar_pergunta', methods=['POST'])
 def editar_pergunta():
